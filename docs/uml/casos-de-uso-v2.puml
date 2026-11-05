@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+title MomentCar - casos de uso implementados (v2)
+actor Cliente
+actor "Agente (empresa/banco)" as Agente
+rectangle MomentCar {
+ usecase "Cadastrar conta / autenticar / sair" as Login
+ usecase "Gerenciar proprio cadastro\ne ate 3 rendimentos" as Cadastro
+ usecase "Cadastrar automovel proprio" as Auto
+ usecase "Introduzir pedido" as Criar
+ usecase "Consultar pedido e status" as Consultar
+ usecase "Modificar pedido aberto" as Editar
+ usecase "Cancelar pedido aberto" as Cancelar
+ usecase "Consultar cliente vinculado" as Dados
+ usecase "Avaliar financeiramente" as Avaliar
+ usecase "Executar contrato aprovado" as Contratar
+ usecase "Registrar referencia de\ncredito concedido por banco" as Credito
+}
+Cliente --> Login
+Agente --> Login
+Cliente --> Cadastro
+Cliente --> Auto
+Agente --> Auto
+Cliente --> Criar
+Cliente --> Consultar
+Agente --> Consultar
+Cliente --> Editar
+Agente --> Editar
+Cliente --> Cancelar
+Agente --> Dados
+Agente --> Avaliar
+Agente --> Contratar
+Credito ..> Contratar : <<extend>>
+note bottom of Login : Cadastro de agente exige convite privado.
+note bottom of Consultar : Cliente acessa seus pedidos; agente acessa pedidos direcionados a ele.
+@enduml

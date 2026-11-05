@@ -1,12 +1,13 @@
 ## Diagramas
 
+### Diagrama de Casos de Uso
+
+![Diagrama de Casos de Uso](casos_de_uso.png)
+
 ### Diagrama de Classes
 
 ![Diagrama de Classes](classes.png)
 
-### Diagrama de Casos de Uso
-
-![Diagrama de Casos de Uso](casos_de_uso.png)
 
 ### Diagrama de Pacotes
 

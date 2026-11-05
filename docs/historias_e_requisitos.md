@@ -1,5 +1,7 @@
 # Sistema de Aluguel de Carros: histórias e requisitos
 
+> Abaixo está o levantamento original. As decisões antes em aberto (tipo de contrato, escopo do agente e campos obrigatórios) foram refinadas em [IMPLEMENTACAO.md](IMPLEMENTACAO.md), que contém a rastreabilidade e os modelos v2. A interface protege o cadastro individual do cliente, mesmo quando o wireframe apresenta uma listagem genérica.
+
 ## Requisitos rastreados
 
 | ID | Requisito | 

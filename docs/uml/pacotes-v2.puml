@@ -1,0 +1,34 @@
+@startuml
+title MomentCar - pacotes e camadas (v2)
+package "frontend - View" {
+ [App / Auth / pages / lists] as view
+ [api.ts] as api
+ view --> api
+}
+package "backend - com.example.backend" {
+ package config { [SecurityConfig] as security }
+ package controller {
+  [AuthController] as auth
+  [LocadoraController] as controller
+  [Requests / ApiErrors] as dto
+ }
+ package service {
+  [ContaService] as accounts
+  [LocadoraService] as service
+ }
+ package model { [Models - records de dominio] as model }
+ package repository { [LocadoraRepository] as repo }
+}
+database "Supabase PostgreSQL\nschema momentcar" as db
+api --> security : HTTPS / JSON / sessao / CSRF
+security --> auth
+security --> controller
+auth --> accounts
+controller --> service
+controller --> dto
+service --> model
+accounts --> model
+service --> repo
+accounts --> repo
+repo --> db : JDBC / transacoes
+@enduml

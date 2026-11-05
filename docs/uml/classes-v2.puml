@@ -1,0 +1,75 @@
+@startuml
+title MomentCar - modelo implementado (v2)
+hide empty methods
+class Usuario {
+ id: UUID
+ usuario: String
+ senha: hash BCrypt
+ nome: String
+ perfil: CLIENTE | EMPRESA | BANCO
+}
+class Cliente {
+ id: UUID
+ rg: String
+ cpf: String
+ nome: String
+ endereco: String
+ profissao: String
+}
+class Emprego {
+ entidade: String
+ rendimento: BigDecimal
+}
+class Automovel {
+ id: UUID
+ matricula: String
+ ano: int
+ marca: String
+ modelo: String
+ placa: String
+ proprietarioId: UUID
+}
+class Pedido {
+ id: UUID
+ numero: long
+ inicio: LocalDate
+ fim: LocalDate
+ tipoContrato: CLIENTE | EMPRESA | BANCO
+ status: StatusPedido
+ revisao: int
+ criadoEm: LocalDateTime
+}
+class Avaliacao {
+ id: UUID
+ revisao: int
+ aprovado: boolean
+ parecer: String
+ criadoEm: LocalDateTime
+}
+class Contrato {
+ id: UUID
+ creditoReferencia: String [0..1]
+ criadoEm: LocalDateTime
+}
+Usuario "1" -- "0..1" Cliente : cadastro
+Cliente "1" *-- "0..3" Emprego
+Usuario "1" -- "0..*" Automovel : proprietario
+Cliente "1" -- "0..*" Pedido
+Automovel "1" -- "0..*" Pedido
+Usuario "1" -- "0..*" Pedido : agente responsavel
+Usuario "0..1" -- "0..*" Pedido : banco do credito
+Pedido "1" -- "0..*" Avaliacao : historico
+Usuario "1" -- "0..*" Avaliacao : emissor
+Pedido "1" -- "0..1" Contrato
+Usuario "1" -- "0..*" Contrato : executor
+Usuario "0..1" -- "0..*" Contrato : banco concedente
+note bottom of Usuario
+Agente = perfil EMPRESA ou BANCO.
+Banco concedente exige perfil BANCO.
+end note
+note bottom of Contrato
+CreditoReferencia identifica credito ja concedido.
+Unicidade: banco + creditoReferencia.
+Pedido contratado e imutavel.
+end note
+@enduml

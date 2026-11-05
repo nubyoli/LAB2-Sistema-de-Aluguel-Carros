@@ -14,21 +14,6 @@
 | R8 | Java JDK 25, Spring Boot 4.0.x, Maven, React + Vite, Supabase/PostgreSQL e arquitetura MVC. | 
 | R9 | Implementar CRUD de cliente, produzir os modelos e revisá-los conforme a implementação e o feedback. | 
 
-
-| ID | Decisão proposta e limite |
-|---|---|
-| D1 | Cadastro por autoatendimento; cliente consulta, altera e solicita exclusão do próprio cadastro. O PDF exige CRUD, mas não define o responsável ou regras de exclusão. Não foi inventado um administrador. O cadastro inicial e o login são as exceções necessárias à exigência de autenticação. Credenciamento de agentes precisa de validação antes de conceder privilégios. |
-| D2 | O agente confirma a execução do contrato após parecer positivo. A expressão “à sua consideração” é ambígua; confirmar com o professor se a aceitação final é do cliente. Aprovação financeira não executa automaticamente o contrato. |
-| D3 | UUIDs, datas, enumerações e transições de status são propostos. Campos comerciais não especificados (preços, prazos, juros, multas, parcelas) não foram inventados. Tipos de contrato e regras de propriedade precisam de definição posterior. |
-| D4 | ContaAcesso separa credenciais dos dados de negócio, com usuário único e hash de senha. Uma conta por cliente/agente é uma simplificação; múltiplos funcionários de uma empresa exigiriam outro modelo. O pacote segurança também faz autorização por perfil. O PDF não exige JWT, Supabase Auth ou provedor específico. |
-| D5 | Proprietário é uma superclasse abstrata de Cliente e Agente; Agente se especializa em Empresa e Banco. As especializações são disjuntas e completas neste escopo. Cada automóvel tem um proprietário atual; um proprietário pode ter vários automóveis. Histórico de transferências não é exigido. Ao executar contrato, validar a categoria de proprietário conforme seu tipo; a tabela de regras não consta no PDF. |
-| D6 | Avaliações são entidades de histórico: cada avaliação pertence a um pedido e é emitida por um agente. Um pedido pode ter zero ou muitas avaliações. Para o protótipo, vale a avaliação mais recente posterior à última alteração relevante do pedido; empates e concorrência devem ser resolvidos transacionalmente. |
-| D7 | Um pedido pertence a um cliente e origina no máximo um contrato; cada contrato deriva de um pedido e identifica um automóvel. Um automóvel pode constar em vários contratos ao longo do tempo. Isso não autoriza aluguéis simultâneos; disponibilidade e intervalos não são definidos pelo enunciado. |
-| D8 | Um contrato de aluguel associa zero ou um contrato de crédito; cada crédito registrado pertence a um contrato de aluguel e foi concedido por um banco agente. A exclusividade do crédito é proposta. Não foi presumido um motor de concessão bancária ou integração com sistema bancário externo. |
-| D9 | Pacotes de apresentação, cliente HTTP, controladores, aplicação, domínio, persistência e segurança organizam os dois subsistemas sugeridos. MVC é respeitado com View no React, Controller no back-end e Model no domínio/persistência. Não se trata de um diagrama de rede ou implantação. |
-
-Os atributos apresentados são conceituais e essenciais, não um esquema completo de banco de dados. A ausência de IDs em algumas classes não dispensa identidade persistente na implementação. Nome empresarial/CNPJ, políticas de acesso dos agentes e dados detalhados do pedido devem ser validados antes do código final.
-
 ## Histórias de usuário e critérios de aceitação
 
 

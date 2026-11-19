@@ -169,6 +169,6 @@ O protótipo não realiza pagamentos, assinatura digital, concessão de crédito
 
 ## Autores e contribuição
 
-Projeto acadêmico da disciplina de Desenvolvimento e Integração de Aplicações Web, orientada pelo Prof. João Paulo Carneiro Aramuni. A equipe deve preencher seus integrantes e links de apresentação antes da entrega. Não foram inventados autores, links de deploy ou licença.
+Projeto acadêmico da disciplina de Desenvolvimento e Integração de Aplicações Web, orientada pelo Prof. João Paulo Carneiro Aramuni. README disponibilizado no tamplate do repositório da matéria.
 
-Antes de contribuir, execute os testes e o build. Ao alterar o domínio, adicione uma nova migração e atualize os modelos em `docs/uml`. A estrutura deste README foi adaptada do template já existente no repositório.
+[Núbia Torres de Oliveira]([https://github.com](https://github.com/nubyoli))
